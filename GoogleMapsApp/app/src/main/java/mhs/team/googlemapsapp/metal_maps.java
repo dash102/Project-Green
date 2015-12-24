@@ -3,11 +3,14 @@ package mhs.team.googlemapsapp;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class metal_maps extends FragmentActivity {
 
@@ -18,6 +21,19 @@ public class metal_maps extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.metal_maps);
         setUpMapIfNeeded();
+        final Button metalMarker = (Button) findViewById(R.id.metalMarker);
+
+        metalMarker.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        mMap.addMarker(new MarkerOptions()
+                                .position(new LatLng(39.1917, -96.5917))
+                                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                                .draggable(true));
+
+                    }
+                }
+        );
     }
 
     @Override

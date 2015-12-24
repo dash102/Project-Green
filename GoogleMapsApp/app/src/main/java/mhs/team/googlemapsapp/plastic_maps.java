@@ -3,21 +3,41 @@ package mhs.team.googlemapsapp;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 
 public class plastic_maps extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.plastic_maps);
         setUpMapIfNeeded();
+        final Button plasticMarker = (Button) findViewById(R.id.plasticMarker);
+
+        plasticMarker.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        mMap.addMarker(new MarkerOptions()
+                                .position(new LatLng(39.1917, -96.5917))
+                                .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                                .draggable(true));
+
+                    }
+                }
+        );
     }
 
     @Override
@@ -26,9 +46,8 @@ public class plastic_maps extends FragmentActivity {
         setUpMapIfNeeded();
     }
 
-    void onClick(View plasticButton) {
 
-    }
+
     /**
      * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
      * installed) and the map has not already been instantiated.. This will ensure that we only ever
@@ -66,9 +85,10 @@ public class plastic_maps extends FragmentActivity {
 
 
 
+
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917,-96.5917), 12.0f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917, -96.5917), 12.0f));
 
     }
 }

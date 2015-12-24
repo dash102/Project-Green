@@ -3,9 +3,9 @@
     android:layout_height="match_parent" android:id="@+id/map" tools:context=".MapsActivity"
     android:name="com.google.android.gms.maps.SupportMapFragment">
     <Button
-        android:id="@+id/plasticLabel"
+        android:id="@+id/plasticMarker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#963498db"
-        android:text=" Plastic Recycling Bins " />
+        android:background="#ffffff"
+        android:text=" Add a Marker " />
 </fragment>

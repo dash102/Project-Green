@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class IconPage extends Activity {
+public class Recycle extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,7 @@ public class IconPage extends Activity {
         plasticButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IconPage.this, plastic_maps.class);
+                Intent intent = new Intent(Recycle.this, plastic_maps.class);
                 startActivity(intent);
             }
         });
@@ -27,7 +27,7 @@ public class IconPage extends Activity {
         paperButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IconPage.this, paper_maps.class);
+                Intent intent = new Intent(Recycle.this, paper_maps.class);
                 startActivity(intent);
             }
         });
@@ -35,7 +35,7 @@ public class IconPage extends Activity {
         metalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(IconPage.this, metal_maps.class);
+                Intent intent = new Intent(Recycle.this, metal_maps.class);
                 startActivity(intent);
             }
         });
