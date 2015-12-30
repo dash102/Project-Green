@@ -33,6 +33,8 @@ public class plastic_maps extends FragmentActivity {
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(39.1917, -96.5917))
                                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                                .title("Plastic recycling bin")
+                                .snippet("At library")
                                 .draggable(true));
 
                     }

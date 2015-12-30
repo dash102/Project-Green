@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 public class Recycle extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_icon_page);
+
 
         Button plasticButton = (Button) findViewById(R.id.plasticButton);
         Button paperButton = (Button) findViewById(R.id.paperButton);
