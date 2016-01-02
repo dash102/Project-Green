@@ -1,5 +1,8 @@
 package mhs.team.googlemapsapp;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,11 +33,12 @@ public class plastic_maps extends FragmentActivity {
         plasticMarker.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
+                        LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+                        Location myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
                         mMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(39.1917, -96.5917))
+                                .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
                                 .title("Plastic recycling bin")
-                                .snippet("At library")
                                 .draggable(true));
 
                     }
