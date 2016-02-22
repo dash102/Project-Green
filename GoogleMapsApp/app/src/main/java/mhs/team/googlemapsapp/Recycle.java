@@ -3,6 +3,7 @@ package mhs.team.googlemapsapp;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,8 +11,19 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 
 public class Recycle extends Activity {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return true;
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        getActionBar().setTitle("Choose a Material");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_icon_page);
 

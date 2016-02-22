@@ -1,10 +1,13 @@
 package mhs.team.googlemapsapp;
 
 import android.content.Context;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -19,9 +22,19 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class paper_maps extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
 
+        if (id == android.R.id.home) {
+            finish();
+        }
+        return true;
+    }
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+        getActionBar().setTitle("Paper Bins");
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.paper_maps);
         setUpMapIfNeeded();
@@ -30,8 +43,18 @@ public class paper_maps extends FragmentActivity {
         paperMarker.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
+                        // Setting location for future use
                         LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+                        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                        Criteria criteria = new Criteria();
+                        criteria.setAccuracy(Criteria.ACCURACY_LOW);
+                        String provider = locationManager.getBestProvider(criteria, true);
+
+                        Location location = locationManager.getLastKnownLocation(provider);
                         Location myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+                        // Check location
+                        Log.e("Location: ", new LatLng(myLocation.getLatitude(), myLocation.getLongitude()).toString());
+                        // Set marker
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))

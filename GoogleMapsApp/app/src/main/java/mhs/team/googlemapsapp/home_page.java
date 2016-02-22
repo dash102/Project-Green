@@ -2,6 +2,7 @@ package mhs.team.googlemapsapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import com.parse.Parse;
 public class home_page extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getActionBar().setTitle("Recycle Home");
 
         // [Optional] Power your app with Local Datastore. For more info, go to
         // https://parse.com/docs/android/guide#local-datastore
@@ -46,4 +48,5 @@ public class home_page extends Activity {
                 }
         );
     }
+
 }
