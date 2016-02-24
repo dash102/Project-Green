@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\inspire314\Desktop\Apps\REAL APP\GoogleMapsApp\app\build\intermediates\exploded-aar\com.intuit.sdp\sdp-android\1.0.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.0"
+        sha1="5831c1517a9c80bf19a6b76ad23b898a7d827c0f">
+        <dex dex="C:\Users\inspire314\Desktop\Apps\REAL APP\GoogleMapsApp\app\build\intermediates\pre-dexed\debug\classes-3e331b900953aea0f0463bb5a11a8a6af5a9c1e3.jar" />
+    </item>
+
+</items>
