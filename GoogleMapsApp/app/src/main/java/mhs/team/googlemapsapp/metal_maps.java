@@ -53,8 +53,6 @@ public class metal_maps extends FragmentActivity {
 
                         Location location = locationManager.getLastKnownLocation(provider);
                         Location myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-                        // Check location
-                        Log.e("Location: ", new LatLng(myLocation.getLatitude(), myLocation.getLongitude()).toString());
                         // Set marker
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))

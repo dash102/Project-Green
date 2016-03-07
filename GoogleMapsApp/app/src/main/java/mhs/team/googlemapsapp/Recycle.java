@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -28,9 +29,12 @@ public class Recycle extends Activity {
         setContentView(R.layout.activity_icon_page);
 
 
-        Button plasticButton = (Button) findViewById(R.id.plasticButton);
-        Button paperButton = (Button) findViewById(R.id.paperButton);
-        Button metalButton = (Button) findViewById(R.id.metalButton);
+        ImageButton plasticButton = (ImageButton) findViewById(R.id.plasticButton);
+        ImageButton paperButton = (ImageButton) findViewById(R.id.paperButton);
+        ImageButton metalButton = (ImageButton) findViewById(R.id.metalButton);
+        ImageButton glassButton = (ImageButton) findViewById(R.id.glassButton);
+        ImageButton woodButton = (ImageButton) findViewById(R.id.woodButton);
+        ImageButton cardboardButton = (ImageButton) findViewById(R.id.cardboardButton);
 
         plasticButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +56,30 @@ public class Recycle extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Recycle.this, metal_maps.class);
+                startActivity(intent);
+            }
+        });
+
+        cardboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Recycle.this, cardboard_maps.class);
+                startActivity(intent);
+            }
+        });
+
+        glassButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Recycle.this, glass_maps.class);
+                startActivity(intent);
+            }
+        });
+
+        woodButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Recycle.this, wood_maps.class);
                 startActivity(intent);
             }
         });

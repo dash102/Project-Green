@@ -4,7 +4,7 @@
     <string name ="google_maps_key">AIzaSyCjjcaUr6Oi2TMAjpiKS_xnG4zmwFcJdTI</string>
     <string name="title_activity_icon_page">IconPage</string>
     <string name="home_page">HomePage</string>
-
+    <string name="google_app_id">GoogleMapsApp</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>

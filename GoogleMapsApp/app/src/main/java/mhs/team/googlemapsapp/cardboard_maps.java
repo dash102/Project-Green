@@ -4,24 +4,22 @@ import android.content.Context;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-
-public class plastic_maps extends FragmentActivity {
+public class cardboard_maps extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -34,15 +32,15 @@ public class plastic_maps extends FragmentActivity {
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getActionBar().setTitle("Plastic Bins");
+        getActionBar().setTitle("Cardboard Bins");
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.plastic_maps);
+        setContentView(R.layout.cardboard_maps);
         setUpMapIfNeeded();
-        final Button plasticMarker = (Button) findViewById(R.id.plasticMarker);
+        final Button cardboardMarker = (Button) findViewById(R.id.cardboardMarker);
 
-        plasticMarker.setOnClickListener(
+        cardboardMarker.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
                         // Setting location for future use
@@ -58,7 +56,7 @@ public class plastic_maps extends FragmentActivity {
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
-                                .title("Plastic recycling bin")
+                                .title("Cardboard recycling bin")
                                 .draggable(true));
 
                     }
@@ -85,10 +83,9 @@ public class plastic_maps extends FragmentActivity {
         }
     }
 
-
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917, -96.5917), 12.0f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917,-96.5917), 12.0f));
 
     }
 }

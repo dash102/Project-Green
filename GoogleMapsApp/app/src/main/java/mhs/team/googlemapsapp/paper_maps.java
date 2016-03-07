@@ -52,8 +52,6 @@ public class paper_maps extends FragmentActivity {
 
                         Location location = locationManager.getLastKnownLocation(provider);
                         Location myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-                        // Check location
-                        Log.e("Location: ", new LatLng(myLocation.getLatitude(), myLocation.getLongitude()).toString());
                         // Set marker
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
@@ -86,6 +84,7 @@ public class paper_maps extends FragmentActivity {
     }
 
     private void setUpMap() {
+        mMap.setMyLocationEnabled(true);
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917,-96.5917), 12.0f));
 
     }

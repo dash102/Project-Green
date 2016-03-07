@@ -58,6 +58,18 @@
             android:label="@string/title_activity_maps" >
         </activity>
         <activity
+            android:name=".wood_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".glass_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".cardboard_maps"
+            android:label="@string/title_activity_maps" >
+            </activity>
+        <activity
             android:name=".home_page"
             android:label="@string/home_page" >
             <intent-filter>
@@ -66,11 +78,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Login"
-            android:label="@string/title_activity_login"
-            android:windowSoftInputMode="adjustResize|stateHidden" >
-        </activity>
+
     </application>
 
 </manifest>

@@ -99,6 +99,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-wallet/8.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-wearable/8.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services/8.4.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.intuit.sdp/sdp-android/1.0.2/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jacoco" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaResources" />
@@ -134,6 +135,7 @@
     <orderEntry type="library" exported="" name="play-services-maps-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-appinvite-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="parse-android-1.13.0" level="project" />
+    <orderEntry type="library" exported="" name="sdp-android-1.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="bolts-android-1.4.0" level="project" />
     <orderEntry type="library" exported="" name="bolts-tasks-1.4.0" level="project" />
