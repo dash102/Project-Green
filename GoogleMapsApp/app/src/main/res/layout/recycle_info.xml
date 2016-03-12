@@ -1,14 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2980b9">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Clouds"
-        android:id="@+id/textView"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="   Tips on Going Green"
+        android:id="@+id/title"
+        android:textColor="#ecf0f1"
+        android:textSize="@dimen/_25sdp"
+        android:paddingLeft="@dimen/_25sdp"
+        android:adjustViewBounds="true"
+        android:paddingRight="@dimen/_25sdp"
+        android:paddingTop="@dimen/_10sdp"
+        android:background="#27ae60"
+        android:paddingBottom="@dimen/_15sdp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:width="@dimen/_300sdp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_2sdp"
+        android:id="@+id/imageView"
         android:layout_gravity="center_horizontal"
-        android:textColor="#ecf0f1" />
-</LinearLayout>
+        android:background="#010101"
+        android:layout_alignBottom="@+id/title"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dp"
+        android:layout_below="@+id/title">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Electronics\n--------------------\nBefore you go to sleep, make sure you truly turn off electronics that you don't need to run overnight to avoid standby power."
+                android:id="@+id/electronics"
+                android:background="#3498db"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#010101" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Automobiles\n--------------------\nCheck the pressure on your car's tires regularly and adjust it according to the pressure in the car's manual. This increases mileage."
+                android:id="@+id/automobiles"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#ecf0f1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lights\n--------------------\nInstall dimmer switches in your house to save on your electricity bills. This also gives you ultimate control over how much light you want."
+                android:id="@+id/textView"
+                android:background="#3498db"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#010101" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

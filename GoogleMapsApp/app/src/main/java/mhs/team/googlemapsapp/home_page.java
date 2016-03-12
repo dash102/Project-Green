@@ -41,7 +41,7 @@ public class home_page extends Activity {
         recycleBin.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        Intent intent = new Intent(home_page.this, Recycle.class);
+                        Intent intent = new Intent(home_page.this, recycle_info.class);
                         startActivity(intent);
 
                     }

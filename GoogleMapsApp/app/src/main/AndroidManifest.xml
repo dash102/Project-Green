@@ -70,6 +70,10 @@
             android:label="@string/title_activity_maps" >
             </activity>
         <activity
+            android:name=".recycle_info"
+            android:label="Recycling info" >
+        </activity>
+        <activity
             android:name=".home_page"
             android:label="@string/home_page" >
             <intent-filter>
