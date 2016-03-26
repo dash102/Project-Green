@@ -1,6 +1,8 @@
 package mhs.team.googlemapsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +26,9 @@ public class register extends AppCompatActivity {
     String username;
     String password;
     String email;
+    Boolean isUsername = false;
+    Boolean isPassword = false;
+    Boolean isEmail = false;
 
 
     @Override
@@ -32,10 +37,20 @@ public class register extends AppCompatActivity {
         setContentView(R.layout.register);
 
         Button toLogIn = (Button) findViewById(R.id.toSignIn);
-        Button register = (Button) findViewById(R.id.register);
+        final Button register = (Button) findViewById(R.id.register);
         final EditText setUsername = (EditText) findViewById(R.id.setUsername);
         final EditText setPassword = (EditText) findViewById(R.id.setPassword);
         final EditText setEmail = (EditText) findViewById(R.id.setEmail);
+
+        toLogIn.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        Intent intent = new Intent(register.this, login.class);
+                        startActivity(intent);
+
+                    }
+                }
+        );
 
         register.setOnClickListener(
                 new Button.OnClickListener() {
@@ -48,16 +63,12 @@ public class register extends AppCompatActivity {
                                         public void done(List<ParseObject> spots, ParseException e) {
                                             if (e == null) {
                                                 if(spots.size() == 0) {
-                                                    Toast.makeText(getApplicationContext(), "U_RIGHT", Toast.LENGTH_SHORT).show();
-                                                    username = setUsername.getText().toString();
-                                                    accounts.add("username", username);
-                                                    accounts.saveInBackground();
+                                                    isUsername = true;
                                                 } else {
-                                                    Toast.makeText(getApplicationContext(), "U_WRONG", Toast.LENGTH_SHORT).show();
+                                                    isUsername = false;
                                                 }
                                             } else {
                                                 Log.d("score", "Error: " + e.getMessage());
-                                                Toast.makeText(getApplicationContext(), "drumph donald ", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
@@ -68,16 +79,12 @@ public class register extends AppCompatActivity {
                                         public void done(List<ParseObject> spots, ParseException e) {
                                             if (e == null) {
                                                 if (spots.size() == 0) {
-                                                    Toast.makeText(getApplicationContext(), "P_RIGHT", Toast.LENGTH_SHORT).show();
-                                                    accounts.add("password", setPassword.getText().toString());
-                                                    password = setPassword.getText().toString();
-                                                    accounts.saveInBackground();
+                                                    isPassword = true;
                                                 } else {
-                                                    Toast.makeText(getApplicationContext(), "P_WRONG", Toast.LENGTH_SHORT).show();
+                                                    isPassword = false;
                                                 }
                                             } else {
                                                 Log.d("score", "Error: " + e.getMessage());
-                                                Toast.makeText(getApplicationContext(), "drumph donald ", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
@@ -88,19 +95,46 @@ public class register extends AppCompatActivity {
                                         public void done(List<ParseObject> spots, ParseException e) {
                                             if (e == null) {
                                                 if(spots.size() == 0) {
-                                                    Toast.makeText(getApplicationContext(), "E_RIGHT", Toast.LENGTH_SHORT).show();
-                                                    accounts.add("email", setEmail.getText().toString());
-                                                    email = setEmail.getText().toString();
-                                                    accounts.saveInBackground();
+                                                    isEmail = true;
                                                 } else {
-                                                    Toast.makeText(getApplicationContext(), "E_WRONG", Toast.LENGTH_SHORT).show();
+                                                    isEmail = false;
                                                 }
                                             } else {
                                                 Log.d("score", "Error: " + e.getMessage());
-                                                Toast.makeText(getApplicationContext(), "drumph donald ", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
+                            Toast.makeText(getApplicationContext(), "Loading...", Toast.LENGTH_SHORT).show();
+
+                            Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if(isUsername && isPassword && isEmail) {
+                                        username = setUsername.getText().toString();
+                                        password = setPassword.getText().toString();
+                                        email = setEmail.getText().toString();
+                                        accounts.add("username", username);
+                                        accounts.add("password", password);
+                                        accounts.add("email", email);
+                                        accounts.saveInBackground();
+                                        register.getBackground().setAlpha(50);
+                                        register.setEnabled(false);
+                                        Toast.makeText(getApplicationContext(), "Your account has been made, enjoy!", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        if(!isUsername) {
+                                            Toast.makeText(getApplicationContext(), "Username already taken", Toast.LENGTH_SHORT).show();
+                                        }
+                                        if(!isPassword) {
+                                            Toast.makeText(getApplicationContext(), "Password already taken", Toast.LENGTH_SHORT).show();
+                                        }
+                                        if(!isEmail) {
+                                            Toast.makeText(getApplicationContext(), "Email has already been used", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+                            }, 2000);
+
                         } else {
                             Toast.makeText(getApplicationContext(), "Pleas enter at least 3 characters in each field.", Toast.LENGTH_LONG).show();
                         }
