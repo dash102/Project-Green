@@ -27,6 +27,7 @@ public class home_page extends Activity {
 
         final ImageButton pinIt = (ImageButton) findViewById(R.id.pinIt);
         final ImageButton recycleBin = (ImageButton) findViewById(R.id.recycleBin);
+        final ImageButton settingsBot = (ImageButton) findViewById(R.id.settings);
 
         pinIt.setOnClickListener(
                 new Button.OnClickListener() {
@@ -46,6 +47,16 @@ public class home_page extends Activity {
 
                     }
                 }
+        );
+
+        settingsBot.setOnClickListener(
+            new Button.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(home_page.this, register.class);
+                    startActivity(intent);
+
+                }
+            }
         );
     }
 

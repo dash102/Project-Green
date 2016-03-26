@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,8 +19,11 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.parse.ParseObject;
 
 public class paper_maps extends FragmentActivity {
+
+    ParseObject spots = new ParseObject("spots");
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -39,6 +43,7 @@ public class paper_maps extends FragmentActivity {
         setContentView(R.layout.paper_maps);
         setUpMapIfNeeded();
         final Button paperMarker = (Button) findViewById(R.id.paperMarker);
+        paperMarker.setText("ADD A MARKER");
 
         paperMarker.setOnClickListener(
                 new Button.OnClickListener() {
@@ -58,6 +63,13 @@ public class paper_maps extends FragmentActivity {
                                 .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
                                 .title("Paper recycling bin")
                                 .draggable(true));
+                        // Send marker data to Parse
+                        spots.put("type", "paper");
+                        spots.put("longitude", "1.0");
+                        spots.put("latitude", "1.0");
+                        spots.put("username", "Bob123");
+                        spots.saveInBackground();
+                        Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
 
                     }
                 }
