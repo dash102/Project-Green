@@ -1,9 +1,12 @@
 package mhs.team.googlemapsapp;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -47,6 +50,25 @@ public class plastic_maps extends FragmentActivity {
         }
         return true;
     }
+
+    private void showSimplePopUp() {
+
+        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
+        helpBuilder.setTitle("Location Services Disabled");
+        helpBuilder.setMessage("Please go Settings to enable Location Services. \nNote: You may have to wait a few seconds for your location to be found.");
+        helpBuilder.setPositiveButton("Ok",
+                new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing but close the dialog
+                    }
+                });
+
+        // Remember, create doesn't show the dialog
+        AlertDialog helpDialog = helpBuilder.create();
+        helpDialog.show();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         getActionBar().setTitle("Plastic Bins");
@@ -56,12 +78,12 @@ public class plastic_maps extends FragmentActivity {
         setContentView(R.layout.plastic_maps);
         setUpMapIfNeeded();
         final Button plasticMarker = (Button) findViewById(R.id.plasticMarker);
-        plasticMarker.setText("ADD A MARKER");
+        plasticMarker.setText("Add a Marker");
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_LOW);
+        criteria.setAccuracy(Criteria.ACCURACY_MEDIUM);
         String provider = locationManager.getBestProvider(criteria, true);
 
         location = locationManager.getLastKnownLocation(provider);
@@ -102,35 +124,42 @@ public class plastic_maps extends FragmentActivity {
         plasticMarker.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
-                        if (plasticMarker.getText().toString() == "ADD A MARKER") {
-                            // Setting location for future use
+                        String locationProviders = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+                        if (locationProviders == null || locationProviders.equals("")) {
+                            showSimplePopUp();
+                        }
+                        else if (!(locationProviders == null || locationProviders.equals(""))){
+                            if (plasticMarker.getText().toString().equals("Add a Marker")) {
+                                // Setting location for future use
 
-                            plasticMarker.setText("SAVE");
+                                plasticMarker.setText("Save");
 
-                            // Set marker
-                            mMap.addMarker(new MarkerOptions()
-                                    .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
-                                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
-                                    .title("Plastic recycling bin")
-                                    .draggable(false));
+                                // Set marker
+                                mMap.addMarker(new MarkerOptions()
+                                        .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
+                                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                                        .title("Plastic recycling bin")
+                                        .draggable(true));
 
-                            latitude = myLocation.getLatitude();
-                            longitude = myLocation .getLongitude();
-                        } else {
-                            // Send marker data to Parse
-                            spots.put("type", "plastic");
-                            spots.put("longitude", longitude);
-                            spots.put("latitude", latitude);
-                            spots.put("username", "Bob123");
-                            spots.saveInBackground();
-                            Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
-                            plasticMarker.setText("ADD A MARKER");
+                                latitude = myLocation.getLatitude();
+                                longitude = myLocation .getLongitude();
+                            } else {
+                                // Send marker data to Parse
+                                spots.put("type", "plastic");
+                                spots.put("longitude", longitude);
+                                spots.put("latitude", latitude);
+                                spots.put("username", "Bob123");
+                                spots.saveInBackground();
+                                Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
+                                plasticMarker.setText("Add a Marker");
 
 
+                            }
                         }
                     }
                 }
         );
+
     }
 
 
@@ -194,7 +223,7 @@ public class plastic_maps extends FragmentActivity {
 
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917, -96.5917), 12.0f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917,-96.5917), 12.0f));
 
     }
 }
