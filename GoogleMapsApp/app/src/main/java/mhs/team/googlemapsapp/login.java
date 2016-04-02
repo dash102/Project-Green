@@ -1,5 +1,6 @@
 package mhs.team.googlemapsapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -72,6 +73,7 @@ public class login extends AppCompatActivity {
                                                     thePassword = putPassword.getText().toString();
                                                     theEmail = arr[0];
                                                     Toast.makeText(getApplicationContext(), "logged in", Toast.LENGTH_SHORT).show();
+                                                    backToHome();
                                                 } else {
                                                     Toast.makeText(getApplicationContext(), "here0", Toast.LENGTH_SHORT).show();
                                                 }
@@ -85,6 +87,11 @@ public class login extends AppCompatActivity {
                     }
                 }
         );
+    }
+
+    public void backToHome() {
+        Intent intent = new Intent(login.this, Recycle.class);
+        startActivity(intent);
     }
 
 }

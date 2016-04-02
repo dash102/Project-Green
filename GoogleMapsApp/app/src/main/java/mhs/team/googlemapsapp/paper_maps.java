@@ -137,7 +137,7 @@ public class paper_maps extends FragmentActivity {
                                 // Set marker
                                 mMap.addMarker(new MarkerOptions()
                                         .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
-                                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
                                         .title("Paper recycling bin")
                                         .draggable(true));
 
@@ -169,7 +169,7 @@ public class paper_maps extends FragmentActivity {
             // Set markers
             mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(latitudeArray[i], longitudeArray[i]))
-                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_launcher))
+                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
                     .title("Paper recycling bin")
                     .draggable(false));
         }
