@@ -1,5 +1,6 @@
 package mhs.team.googlemapsapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -20,7 +21,7 @@ import com.parse.ParseQuery;
 
 import java.util.List;
 
-public class register extends AppCompatActivity {
+public class register extends Activity {
 
     ParseObject accounts = new ParseObject("accounts");
     String username;

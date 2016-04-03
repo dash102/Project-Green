@@ -9,7 +9,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="   Tips on Going Green"
+        android:text="  Tips on Going Green"
         android:id="@+id/title"
         android:textColor="#ecf0f1"
         android:textSize="@dimen/_25sdp"
@@ -69,7 +69,8 @@
                 android:id="@+id/automobiles"
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:textColor="#ecf0f1" />
+                android:textColor="#ecf0f1"
+                android:background="#2980b9"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -88,7 +89,8 @@
                 android:id="@+id/goingToWork"
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:textColor="#ecf0f1" />
+                android:textColor="#ecf0f1"
+                android:background="#2980b9"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,7 +109,8 @@
                 android:id="@+id/brushingYourTeeth"
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:textColor="#ecf0f1" />
+                android:textColor="#ecf0f1"
+                android:background="#2980b9"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -126,7 +129,8 @@
                 android:id="@+id/groceries"
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:textColor="#ecf0f1" />
+                android:textColor="#ecf0f1"
+                android:background="#2980b9"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -145,7 +149,8 @@
                 android:id="@+id/biking"
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:textColor="#ecf0f1" />
+                android:textColor="#ecf0f1"
+                android:background="#2980b9"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -164,7 +169,8 @@
                 android:id="@+id/eatingLocally"
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:textColor="#ecf0f1" />
+                android:textColor="#ecf0f1"
+                android:background="#2980b9"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -183,7 +189,8 @@
                 android:id="@+id/laundry"
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
-                android:textColor="#ecf0f1" />
+                android:textColor="#ecf0f1"
+                android:background="#2980b9"/>
 
         </LinearLayout>
     </ScrollView>

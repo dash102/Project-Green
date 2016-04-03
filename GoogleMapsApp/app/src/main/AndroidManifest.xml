@@ -27,7 +27,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/earth"
         android:label="Project Green"
-        android:theme="@style/Theme.MyAppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
 
         <meta-data
             android:name="com.parse.APPLICATION_ID"

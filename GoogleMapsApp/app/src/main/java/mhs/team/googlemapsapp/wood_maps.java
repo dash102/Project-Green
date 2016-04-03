@@ -71,8 +71,8 @@ public class wood_maps extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getActionBar().setTitle("Wood Bins");
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setTitle("Wood Bins");
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wood_maps);
@@ -223,7 +223,6 @@ public class wood_maps extends FragmentActivity {
 
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.1917,-96.5917), 12.0f));
-
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.188512,-96.581642), 15.5f));
     }
 }

@@ -22,8 +22,8 @@ public class Recycle extends Activity {
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getActionBar().setTitle("Choose a Material");
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setTitle("Choose a Material");
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_icon_page);

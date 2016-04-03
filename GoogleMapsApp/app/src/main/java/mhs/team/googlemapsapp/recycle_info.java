@@ -15,8 +15,8 @@ public class recycle_info extends Activity {
     }
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        getActionBar().setTitle("Recycling Tips");
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getActionBar().setTitle("Recycling Tips");
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycle_info);

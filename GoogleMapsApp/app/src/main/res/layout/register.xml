@@ -47,7 +47,7 @@
         android:text="Don&apos;t have an account?"
         android:id="@+id/noAccountText"
         android:layout_gravity="center_horizontal"
-        android:textSize="@dimen/_30sdp"
+        android:textSize="@dimen/_29sdp"
         android:allowUndo="true"
         android:background="#2980b9" />
 

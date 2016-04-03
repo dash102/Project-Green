@@ -1,5 +1,6 @@
 package mhs.team.googlemapsapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -20,7 +21,7 @@ import com.parse.ParseQuery;
 
 import java.util.List;
 
-public class login extends AppCompatActivity {
+public class login extends Activity {
 
     public String theUsername;
     public String thePassword;
@@ -34,7 +35,7 @@ public class login extends AppCompatActivity {
         final EditText putPassword = (EditText) findViewById(R.id.putPassword);
         Button signIn = (Button) findViewById(R.id.signIn);
 
-        final Intent intent = new Intent(login.this, Recycle.class);
+        final Intent intent = new Intent(login.this, home_page.class);
         signIn.setOnClickListener(
                 new Button.OnClickListener() {
                     public void onClick(View v) {
@@ -48,15 +49,15 @@ public class login extends AppCompatActivity {
                                             if (e == null) {
                                                 String[] arr = new String[1];
                                                 arr[0] = String.valueOf(object.get("password"));
-                                                Toast.makeText(getApplicationContext(),arr[0], Toast.LENGTH_SHORT).show();
-                                                Toast.makeText(getApplicationContext(),  putPassword.getText().toString(), Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(getApplicationContext(),arr[0], Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(getApplicationContext(),  putPassword.getText().toString(), Toast.LENGTH_SHORT).show();
                                                 if(arr[0].equals("[" + putPassword.getText().toString() + "]") ) {
                                                     theUsername = putUsername.getText().toString();
                                                     thePassword = putPassword.getText().toString();
                                                     theEmail = arr[0];
-                                                    //Toast.makeText(getApplicationContext(), "logged in", Toast.LENGTH_SHORT).show();
-                                                    //backToHome();
-                                                    startActivity(intent);
+                                                    Toast.makeText(getApplicationContext(), "logged in", Toast.LENGTH_SHORT).show();
+                                                    backToHome();
+                                                    //startActivity(intent);
                                                 } else {
                                                     Toast.makeText(getApplicationContext(), "here0", Toast.LENGTH_SHORT).show();
                                                 }
@@ -73,8 +74,8 @@ public class login extends AppCompatActivity {
     }
 
     public void backToHome() {
-        Intent intent = new Intent(login.this, Recycle.class);
-        startActivity(intent);
+        Intent intent1 = new Intent(login.this, register.class);
+        startActivity(intent1);
     }
 
 }
