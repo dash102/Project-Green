@@ -28,7 +28,7 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true" />
 
-    <ImageView
+    <!--<ImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/_2sdp"
         android:id="@+id/imageView"
@@ -36,7 +36,7 @@
         android:background="#010101"
         android:layout_alignBottom="@+id/title"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true" />-->
 
     <ScrollView
         android:layout_width="match_parent"
@@ -80,6 +80,111 @@
                 android:textSize="@dimen/_20sdp"
                 android:padding="@dimen/_10sdp"
                 android:textColor="#010101" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Going to Work\n--------------------\nWhether you have a long commute or short commute carpooling will save both your wallet and the environment."
+                android:id="@+id/goingToWork"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#ecf0f1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Leaving a Room\n--------------------\nEvery time you leave a room it is good habit to turn off the lights. This will ensure you are not wasting energy to light a room that no one is in."
+                android:id="@+id/leavingARoom"
+                android:background="#3498db"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#010101" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brushing your Teeth\n--------------------\nWhen you are brushing you teeth, turning off the faucet can save up to five gallons of water every day."
+                android:id="@+id/brushingYourTeeth"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#ecf0f1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Showering\n--------------------\nCutting off your shower time by just two minutes can save more than 10 gallons of water. This means that just by spending a little less time in the shower you will be helping the environment and greatly reducing your water bill."
+                android:id="@+id/showering"
+                android:background="#3498db"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#010101" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Groceries\n--------------------\nTry to invest in a reusable bag for holding your groceries. The result of that will mean less plastic bags will end up in landfills."
+                android:id="@+id/groceries"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#ecf0f1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Driving\n--------------------\nDriving the speed limit instead of above will increase the fuel efficiency of your car and reduce the amount of carbon emissions in the atmosphere."
+                android:id="@+id/driving"
+                android:background="#3498db"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#010101" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Biking\n--------------------\nIf you are going to work or just stopping by the store and you know your trip is not long, then you should ride a bicycle to cut down on gass and carbon emissions."
+                android:id="@+id/biking"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#ecf0f1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Changing Lights\n--------------------\nWhen a light bulb goes out in your home or work replace it with a compact fluorescent bulb to save energy and money."
+                android:id="@+id/changingLights"
+                android:background="#3498db"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#010101" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eating Locally\n--------------------\nSupporting local farmers and eating locally will not only help the environment but it will boost your local economy."
+                android:id="@+id/eatingLocally"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#ecf0f1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grass\n--------------------\nNext time you think about cutting your grass thinking about waiting a few more days. It will save you time, reduce carbon emissions, and actually allow your lawn to grow much greener."
+                android:id="@+id/grass"
+                android:background="#3498db"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#010101" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laundry\n--------------------\nIt is best to only do laundry if you are doing a full load to cut down on the number of loads you need to do and ultimately the amount of water and soap you use."
+                android:id="@+id/laundry"
+                android:textSize="@dimen/_20sdp"
+                android:padding="@dimen/_10sdp"
+                android:textColor="#ecf0f1" />
+
         </LinearLayout>
     </ScrollView>
 
