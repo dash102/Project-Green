@@ -44,7 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Don&apos;t have an acount?"
+        android:text="Don&apos;t have an account?"
         android:id="@+id/noAccountText"
         android:layout_gravity="center_horizontal"
         android:textSize="@dimen/_30sdp"
@@ -63,7 +63,7 @@
         android:layout_height="42dp"
         android:id="@+id/setUsername"
         android:layout_gravity="center_horizontal"
-        android:hint="Username"
+        android:hint=" Username"
         android:background="@mipmap/recycling_edittext" />
 
     <TextView
@@ -80,7 +80,7 @@
         android:ems="10"
         android:id="@+id/setPassword"
         android:layout_gravity="center_horizontal"
-        android:hint="Password"
+        android:hint=" Password"
         android:background="@mipmap/recycling_edittext" />
 
     <TextView
@@ -97,7 +97,7 @@
         android:ems="10"
         android:id="@+id/setEmail"
         android:layout_gravity="center_horizontal"
-        android:hint="E-mail"
+        android:hint=" E-mail"
         android:background="@mipmap/recycling_edittext" />
 
     <TextView
