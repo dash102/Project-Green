@@ -116,7 +116,7 @@ public class cardboard_maps extends FragmentActivity {
                             makeMarkers();
                         } else {
                             Log.d("score", "Error: " + e.getMessage());
-                            Toast.makeText(getApplicationContext(), "drumph donald ", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(), "drumph donald ", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -223,7 +223,10 @@ public class cardboard_maps extends FragmentActivity {
 
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.188512,-96.581642), 15.5f));
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()), 16.0f));
 
     }
 }

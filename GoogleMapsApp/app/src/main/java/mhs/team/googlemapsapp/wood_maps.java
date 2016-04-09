@@ -172,7 +172,7 @@ public class wood_maps extends FragmentActivity {
                     .title("Wood recycling bin")
                     .draggable(false));
         }
-        Toast.makeText(getApplicationContext(), String.valueOf(x), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), String.valueOf(x), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -204,6 +204,7 @@ public class wood_maps extends FragmentActivity {
             // Try to obtain the map from the SupportMapFragment.
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                     .getMap();
+
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 setUpMap();
@@ -223,6 +224,10 @@ public class wood_maps extends FragmentActivity {
 
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(39.188512,-96.581642), 15.5f));
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()), 16.0f));
+
     }
 }

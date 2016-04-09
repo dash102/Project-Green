@@ -5,8 +5,8 @@
     >
 
     <ImageButton
-        android:layout_width="99dp"
-        android:layout_height="159dp"
+        android:layout_width="@dimen/_82sdp"
+        android:layout_height="@dimen/_130sdp"
         android:id="@+id/pinIt"
         android:background="@mipmap/pinit"
         android:adjustViewBounds="true"
@@ -18,8 +18,8 @@
         android:layout_marginStart="53dp" />
 
     <ImageButton
-        android:layout_width="112dp"
-        android:layout_height="140dp"
+        android:layout_width="@dimen/_82sdp"
+        android:layout_height="@dimen/_130sdp"
         android:id="@+id/recycleBin"
         android:layout_weight="1"
         android:background="@mipmap/recyclebin"
@@ -30,8 +30,8 @@
         android:layout_alignBottom="@+id/pinIt" />
 
     <ImageButton
-        android:layout_width="55dp"
-        android:layout_height="51dp"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_44sdp"
         android:id="@+id/settings"
         android:layout_weight="1"
         android:background="@mipmap/person1"
@@ -48,7 +48,7 @@
         android:text="Project Green"
         android:id="@+id/textView2"
         android:layout_marginTop="37dp"
-        android:textSize="55dp"
+        android:textSize="@dimen/_45sdp"
         android:textColor="#ecf0f1"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -60,7 +60,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Recycling made simple"
         android:id="@+id/textView3"
-        android:textSize="20dp"
+        android:textSize="@dimen/_17sdp"
         android:textColor="#85ecf0f1"
         android:background="#2980b9"
         android:layout_below="@+id/textView2"
@@ -72,24 +72,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="      Maps"
+        android:text="Maps"
         android:id="@+id/textView4"
+        android:background="#2980b9"
+        android:textColor="#ecf0f1"
+        android:textSize="@dimen/_20sdp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
         android:layout_alignTop="@+id/textView5"
         android:layout_alignLeft="@+id/pinIt"
-        android:layout_alignStart="@+id/pinIt"
-        android:background="#2980b9"
-        android:textColor="#ecf0f1" />
+        android:layout_alignStart="@+id/pinIt" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text=" Going Green"
+        android:text="Going Green"
         android:id="@+id/textView5"
-        android:layout_marginTop="34dp"
-        android:layout_below="@+id/recycleBin"
-        android:layout_alignLeft="@+id/recycleBin"
-        android:layout_alignStart="@+id/recycleBin"
+        android:layout_marginTop="37dp"
         android:background="#2980b9"
-        android:textColor="#ecf0f1" />
+        android:textColor="#ecf0f1"
+        android:textSize="@dimen/_20sdp"
+        android:layout_below="@+id/recycleBin"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp" />
 </RelativeLayout>
