@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#2980b9"
+    >
+
+    <ImageButton
+        android:layout_width="@dimen/_82sdp"
+        android:layout_height="@dimen/_130sdp"
+        android:id="@+id/pinIt"
+        android:background="@mipmap/pinit"
+        android:adjustViewBounds="true"
+        android:layout_weight="1"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="53dp"
+        android:layout_marginStart="53dp" />
+
+    <ImageButton
+        android:layout_width="@dimen/_82sdp"
+        android:layout_height="@dimen/_130sdp"
+        android:id="@+id/recycleBin"
+        android:layout_weight="1"
+        android:background="@mipmap/recyclebin"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_alignTop="@+id/pinIt"
+        android:layout_toLeftOf="@+id/settings"
+        android:layout_toStartOf="@+id/settings"
+        android:layout_alignBottom="@+id/pinIt" />
+
+    <ImageButton
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_44sdp"
+        android:id="@+id/settings"
+        android:layout_weight="1"
+        android:background="@mipmap/person1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="0dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Project Green"
+        android:id="@+id/textView2"
+        android:layout_marginTop="37dp"
+        android:textSize="@dimen/_45sdp"
+        android:textColor="#ecf0f1"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="#2980b9" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Recycling made simple"
+        android:id="@+id/textView3"
+        android:textSize="@dimen/_17sdp"
+        android:textColor="#85ecf0f1"
+        android:background="#2980b9"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Maps"
+        android:id="@+id/textView4"
+        android:background="#2980b9"
+        android:textColor="#ecf0f1"
+        android:textSize="@dimen/_20sdp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_alignTop="@+id/textView5"
+        android:layout_alignLeft="@+id/pinIt"
+        android:layout_alignStart="@+id/pinIt" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Going Green"
+        android:id="@+id/textView5"
+        android:layout_marginTop="37dp"
+        android:background="#2980b9"
+        android:textColor="#ecf0f1"
+        android:textSize="@dimen/_20sdp"
+        android:layout_below="@+id/recycleBin"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2"
+        android:layout_marginRight="13dp"
+        android:layout_marginEnd="13dp" />
+</RelativeLayout>

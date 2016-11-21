@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="mhs.team.googlemapsapp" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <!--
+ The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but are recommended.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!--
+     To retrieve OAuth 2.0 tokens or invalidate tokens to disconnect a user. This disconnect
+     option is required to comply with the Google+ Sign-In developer policies
+    -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" /> <!-- To retrieve the account name (email) as part of sign-in: -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <application android:logo="@mipmap/earth"
+        android:allowBackup="true"
+        android:icon="@mipmap/earth"
+        android:label="Project Green"
+        android:theme="@style/AppTheme.NoActionBar">
+
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="r9jyvUni18AV0PxXlCBc2YVDjg3Fmcvl96lnvsAL" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="r9v5tc1jnzmMrX5QOvbs828295ONGME2mnzkK3v3" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".Recycle"
+            android:label="@string/title_activity_icon_page" >
+        </activity>
+        <activity
+            android:name=".plastic_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".paper_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".metal_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".wood_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".glass_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".cardboard_maps"
+            android:label="@string/title_activity_maps" >
+        </activity>
+        <activity
+            android:name=".recycle_info"
+            android:label="Recycling info" >
+        </activity>
+        <activity
+            android:name=".home_page"
+            android:label="Project Green" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".register"
+            android:label="@string/title_activity_register"
+            android:parentActivityName=".home_page"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mhs.team.googlemapsapp.home_page" />
+        </activity>
+        <activity
+            android:name=".login"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".register"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mhs.team.googlemapsapp.register" />
+        </activity>
+    </application>
+
+</manifest>
