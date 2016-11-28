@@ -51,23 +51,7 @@ public class paper_maps extends FragmentActivity {
         return true;
     }
 
-    private void showSimplePopUp() {
 
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Location Services Disabled");
-        helpBuilder.setMessage("Please go Settings to enable Location Services. \nNote: You may have to wait a few seconds for your location to be found.");
-        helpBuilder.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing but close the dialog
-                    }
-                });
-
-        // Remember, create doesn't show the dialog
-        AlertDialog helpDialog = helpBuilder.create();
-        helpDialog.show();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -123,38 +107,31 @@ public class paper_maps extends FragmentActivity {
 
         paperMarker.setOnClickListener(
                 new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        String locationProviders = Settings.Secure.getString(getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
-                        if (locationProviders == null || locationProviders.equals("")) {
-                            showSimplePopUp();
-                        }
-                        else if (!(locationProviders == null || locationProviders.equals(""))){
-                            if (paperMarker.getText().toString().equals("Add a Marker")) {
-                                // Setting location for future use
+                public void onClick(View v) {
+                        if (paperMarker.getText().toString().equals("Add a Marker")) {
+                            // Setting location for future use
 
-                                paperMarker.setText("Save");
+                            paperMarker.setText("Save");
 
-                                // Set marker
-                                mMap.addMarker(new MarkerOptions()
-                                        .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
-                                        .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
-                                        .title("Paper recycling bin")
-                                        .draggable(true));
+                            // Set marker
+                            mMap.addMarker(new MarkerOptions()
+                                    .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
+                                    .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
+                                    .title("Paper recycling bin")
+                                    .draggable(true));
 
-                                latitude = myLocation.getLatitude();
-                                longitude = myLocation .getLongitude();
-                            } else {
-                                // Send marker data to Parse
-                                spots.put("type", "paper");
-                                spots.put("longitude", longitude);
-                                spots.put("latitude", latitude);
-                                spots.put("username", "Bob123");
-                                spots.saveInBackground();
-                                Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
-                                paperMarker.setText("Add a Marker");
+                            latitude = myLocation.getLatitude();
+                            longitude = myLocation .getLongitude();
+                        } else {
+                            // Send marker data to Parse
+                            spots.put("type", "paper");
+                            spots.put("longitude", longitude);
+                            spots.put("latitude", latitude);
+                            spots.put("username", "Bob123");
+                            spots.saveInBackground();
+                            Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
+                            paperMarker.setText("Add a Marker");
 
-
-                            }
                         }
                     }
                 }
