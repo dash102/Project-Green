@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -21,22 +22,30 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class plastic_maps extends FragmentActivity {
 
     public static double latitude = 0.0;
     public static double longitude = 0.0;
-    ParseObject spots = new ParseObject("spots");
-    public static double latitudeArray[] = new double[1000];
-    public static double longitudeArray[] = new double[1000];
-    public static int x = 0;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference ref = database.getReference("Plastic");
 
     Location location;
     Location myLocation;
@@ -71,8 +80,6 @@ public class plastic_maps extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        //getActionBar().setTitle("Plastic Bins");
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.plastic_maps);
@@ -91,35 +98,40 @@ public class plastic_maps extends FragmentActivity {
         // Check location
         Log.e("Location: ", new LatLng(myLocation.getLatitude(), myLocation.getLongitude()).toString());
 
-        for(int i = 0; i < longitudeArray.length; i++) {
-            longitudeArray[i] = 20.0;
-            latitudeArray[i] = 20.0;
-        }
+        Query queryRef = ref.orderByChild("plastic");
 
-        // Get all of the plastic data points from parse
+        // Get all of the location points from the firebase database
+        queryRef.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String previousChild) {
+                System.out.println(dataSnapshot.getValue());
+                
+                Map<String, Object> value = (Map<String, Object>) dataSnapshot.getValue();
 
-        ParseQuery
-                .getQuery("spots")
-                .whereEqualTo("type", "plastic")
-                .findInBackground(new FindCallback<ParseObject>() {
-                    public void done(List<ParseObject> spots, ParseException e) {
-                        //Toast.makeText(getApplicationContext(), "asdfkljas;df", Toast.LENGTH_SHORT).show();
-                        if (e == null) {
-                            for (int i = 0; i < spots.size(); i++) {
-                                longitudeArray[i] = spots.get(i).getDouble("longitude");
-                                latitudeArray[i] = spots.get(i).getDouble("latitude");
-                                //longitudeArray[i] = 1234.4321;
-                                //latitudeArray[i] = 4321.1234;
-                                //Toast.makeText(getApplicationContext(), String.valueOf(longitudeArray[i]), Toast.LENGTH_LONG).show();
-                                x++;
-                            }
-                            makeMarkers();
-                        } else {
-                            Log.d("score", "Error: " + e.getMessage());
-                            Toast.makeText(getApplicationContext(), "drumph donald ", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                String lon = String.valueOf(value.get("longitude"));
+                String lat = String.valueOf(value.get("latitude"));
+                makeMarkers(Double.parseDouble(lat), Double.parseDouble(lon));
+
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
         plasticMarker.setOnClickListener(
                 new Button.OnClickListener() {
@@ -144,15 +156,15 @@ public class plastic_maps extends FragmentActivity {
                                 latitude = myLocation.getLatitude();
                                 longitude = myLocation .getLongitude();
                             } else {
-                                // Send marker data to Parse
-                                spots.put("type", "plastic");
-                                spots.put("longitude", longitude);
-                                spots.put("latitude", latitude);
-                                spots.put("username", "Bob123");
-                                spots.saveInBackground();
+
+                                // Send marker data to the firebase database
+                                Map<String, Double> toPut = new HashMap<>();
+                                toPut.put("longitude", longitude);
+                                toPut.put("latitude", latitude);
+                                ref.push().setValue(toPut);
+
                                 Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
                                 plasticMarker.setText("Add a Marker");
-
 
                             }
                         }
@@ -163,16 +175,14 @@ public class plastic_maps extends FragmentActivity {
     }
 
 
-    public void makeMarkers() {
-        for (int i = 0; i < longitudeArray.length; i++) {
+    public void makeMarkers(double latit, double longi) {
             // Set markers
             mMap.addMarker(new MarkerOptions()
-                    .position(new LatLng(latitudeArray[i], longitudeArray[i]))
+                    .position(new LatLng(latit, longi))
                     .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
                     .title("Plastic recycling bin")
                     .draggable(false));
-        }
-        //Toast.makeText(getApplicationContext(), String.valueOf(x), Toast.LENGTH_SHORT).show();
+            //Log.d("okay..........", latit + ", " + longi);
     }
 
     @Override

@@ -1,47 +1,55 @@
 {
   "project_info": {
-    "project_id": "vigilant-design-116704",
-    "project_number": "61766806796",
-    "name": "My Project"
+    "project_number": "578362341840",
+    "firebase_url": "https://project--6087098404412432441.firebaseio.com",
+    "project_id": "project--6087098404412432441",
+    "storage_bucket": "project--6087098404412432441.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:61766806796:android:ede451539e4aab63",
-        "client_id": "android:mhs.team.googlemapsapp",
-        "client_type": 1,
+        "mobilesdk_app_id": "1:578362341840:android:ede451539e4aab63",
         "android_client_info": {
           "package_name": "mhs.team.googlemapsapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "61766806796-1pq16h5is35he5k928f8mtd09jd2s5rd.apps.googleusercontent.com",
+          "client_id": "578362341840-cmoh07q2drfvnhmbbrkvnhfdtbchk4s3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mhs.team.googlemapsapp",
+            "certificate_hash": "737389CF378836447463B9B4996B109E36E36CB2"
+          }
+        },
+        {
+          "client_id": "578362341840-h0m9pjbplqhfus7h7hk0t735lo7ftd6h.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
-      "api_key": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFHqrQuvnhHygbJt1FbEcljvz3bX7Hu_I"
+        }
+      ],
       "services": {
         "analytics_service": {
           "status": 1
         },
-        "cloud_messaging_service": {
-          "status": 1,
-          "apns_config": []
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "google_signin_service": {
-          "status": 1
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578362341840-h0m9pjbplqhfus7h7hk0t735lo7ftd6h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
-          "status": 1
+          "status": 2
         }
       }
     }
   ],
-  "client_info": [],
-  "ARTIFACT_VERSION": "1"
+  "configuration_version": "1"
 }
