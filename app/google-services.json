@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "578362341840-k241oppcnm3rtas6rqd2h3njo42prto2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mhs.team.googlemapsapp",
+            "certificate_hash": "2506A2EDCCF4C488CFA6EB4580D5227449B13A0C"
+          }
+        },
+        {
           "client_id": "578362341840-cmoh07q2drfvnhmbbrkvnhfdtbchk4s3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
