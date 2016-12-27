@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mhs.team.googlemapsapp" >
+    package="mhs.team.googlemapsapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -23,12 +23,12 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <application android:logo="@mipmap/earth"
+    <application
         android:allowBackup="true"
         android:icon="@mipmap/earth"
         android:label="Project Green"
+        android:logo="@mipmap/earth"
         android:theme="@style/AppTheme.NoActionBar">
-
         <meta-data
             android:name="com.parse.APPLICATION_ID"
             android:value="r9jyvUni18AV0PxXlCBc2YVDjg3Fmcvl96lnvsAL" />
@@ -44,41 +44,34 @@
 
         <activity
             android:name=".Recycle"
-            android:label="@string/title_activity_icon_page" >
-        </activity>
+            android:label="@string/title_activity_icon_page" />
         <activity
             android:name=".plastic_maps"
-            android:label="@string/title_activity_maps" >
-        </activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".paper_maps"
-            android:label="@string/title_activity_maps" >
-        </activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".metal_maps"
-            android:label="@string/title_activity_maps" >
-        </activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".wood_maps"
-            android:label="@string/title_activity_maps" >
-        </activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".glass_maps"
-            android:label="@string/title_activity_maps" >
-        </activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".cardboard_maps"
-            android:label="@string/title_activity_maps" >
-        </activity>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".recycle_info"
-            android:label="Recycling info" >
-        </activity>
+            android:label="Recycling info" />
         <activity
             android:name=".home_page"
-            android:label="Project Green" >
+            android:label="Project Green">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -86,7 +79,7 @@
             android:name=".register"
             android:label="@string/title_activity_register"
             android:parentActivityName=".home_page"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mhs.team.googlemapsapp.home_page" />
@@ -95,7 +88,25 @@
             android:name=".login"
             android:label="@string/title_activity_login"
             android:parentActivityName=".register"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mhs.team.googlemapsapp.register" />
+        </activity>
+        <activity
+            android:name=".profile_home"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".home_page"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mhs.team.googlemapsapp.register" />
+        </activity>
+        <activity
+            android:name=".sign_up"
+            android:label="@string/title_activity_login"
+            android:parentActivityName=".register"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mhs.team.googlemapsapp.register" />

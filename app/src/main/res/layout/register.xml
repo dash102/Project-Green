@@ -6,55 +6,6 @@
     android:weightSum="1"
     android:gravity="center_horizontal">
 
-    <Button
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_74sdp"
-        android:id="@+id/toSignIn"
-        android:layout_gravity="center_horizontal"
-        android:background="@mipmap/recycling_sign_in"
-        android:layout_marginTop="36dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Don&apos;t have an account?"
-        android:id="@+id/noAccountText"
-        android:layout_gravity="center_horizontal"
-        android:textSize="@dimen/_29sdp"
-        android:allowUndo="true"
-        android:background="#2980b9"
-        android:layout_marginTop="25dp"
-        android:layout_below="@+id/toSignIn"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="@dimen/_235sdp"
-        android:layout_height="@dimen/_35sdp"
-        android:id="@+id/setUsername"
-        android:layout_gravity="center_horizontal"
-        android:hint="Username"
-        android:background="#ecf0f1"
-        android:layout_marginTop="27dp"
-        android:layout_below="@+id/noAccountText"
-        android:layout_centerHorizontal="true"
-        android:paddingLeft="@dimen/_5sdp" />
-
-    <EditText
-        android:layout_width="@dimen/_235sdp"
-        android:layout_height="@dimen/_35sdp"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/setPassword"
-        android:layout_gravity="center_horizontal"
-        android:hint="Password"
-        android:background="#ecf0f1"
-        android:layout_marginTop="19dp"
-        android:layout_below="@+id/setUsername"
-        android:layout_alignLeft="@+id/setUsername"
-        android:layout_alignStart="@+id/setUsername"
-        android:paddingLeft="@dimen/_5sdp" />
 
     <EditText
         android:layout_width="@dimen/_235sdp"
@@ -65,20 +16,70 @@
         android:layout_gravity="center_horizontal"
         android:hint="E-mail"
         android:background="#ecf0f1"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/setPassword"
+        android:paddingLeft="@dimen/_5sdp"
+        android:layout_below="@+id/noAccountText"
         android:layout_alignLeft="@+id/setPassword"
         android:layout_alignStart="@+id/setPassword"
-        android:paddingLeft="@dimen/_5sdp" />
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/setPassword"
+        android:layout_gravity="center_horizontal"
+        android:hint="Password"
+        android:background="#ecf0f1"
+        android:paddingLeft="@dimen/_5sdp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/setEmail" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Log in"
+        android:ems="10"
+        android:id="@+id/noAccountText"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/setPassword"
+        android:layout_alignStart="@+id/setPassword" />
+
+
+    <TextView
+        android:text="Sign up now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/register"
+        android:textColor="@color/wallet_link_text_light"
+        android:textSize="18sp"
+        android:layout_below="@+id/dontHavaAnAccountText"
+        android:layout_alignLeft="@+id/dontHavaAnAccountText"
+        android:layout_alignStart="@+id/dontHavaAnAccountText"
+        android:clickable="true"/>
 
     <Button
-        android:layout_width="@dimen/_200sdp"
-        android:layout_height="@dimen/_74sdp"
-        android:id="@+id/register"
-        android:layout_gravity="center_horizontal"
-        android:background="@mipmap/recycle_register"
-        android:layout_below="@+id/setEmail"
+        android:text="Log in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toSignIn"
+        android:layout_below="@+id/setPassword"
+        android:layout_alignLeft="@+id/setEmail"
+        android:layout_alignStart="@+id/setEmail"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:text="Don't have an account?"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/dontHavaAnAccountText"
+        android:fontFamily="sans-serif"
+        android:textSize="18sp"
+        android:layout_below="@+id/toSignIn"
         android:layout_alignLeft="@+id/toSignIn"
-        android:layout_alignStart="@+id/toSignIn"
-        android:layout_marginTop="30dp" />
+        android:layout_alignStart="@+id/toSignIn" />
+
+
 </RelativeLayout>

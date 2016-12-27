@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sign_up"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="mhs.team.googlemapsapp.sign_up">
+
+    <TextView
+        android:text="Create an Account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/textView10"
+        android:textSize="22sp" />
+
+    <TextView
+        android:text="Enter your name (optional)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView10"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="46dp"
+        android:id="@+id/textView11"
+        android:textSize="12sp" />
+
+    <EditText
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:ems="10"
+        android:layout_below="@+id/textView11"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/newName"
+        android:background="#ecf0f1"/>
+
+    <TextView
+        android:text="Enter your email (required)"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textView13"
+        android:textSize="12sp" />
+    <EditText
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:inputType="textEmailAddress"
+        android:hint="Email"
+        android:ems="10"
+        android:layout_below="@+id/textView13"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/newEmail"
+        android:background="#ecf0f1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="17dp"
+        android:id="@+id/textView14"
+        android:textSize="12sp"
+        android:text="Enter your password (required)" />
+    <EditText
+        android:layout_width="@dimen/_235sdp"
+        android:layout_height="@dimen/_35sdp"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:ems="10"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/newPassword"
+        android:background="#ecf0f1"/>
+
+    <Button
+        android:text="Sign Up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:id="@+id/registerButton"
+        android:layout_below="@+id/newPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newEmail"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/emailError"
+        android:textSize="10sp"
+        android:textColor="@android:color/holo_red_light" />
+
+    <TextView
+        android:text="Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newPassword"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/passwordError"
+        android:textColor="@android:color/holo_red_light"
+        android:textSize="10sp" />
+
+    <TextView
+        android:text="Error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/unknownError"
+        android:textSize="10sp"
+        android:textColor="@android:color/holo_red_light"
+        android:layout_below="@+id/registerButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="11dp" />
+
+</RelativeLayout>
