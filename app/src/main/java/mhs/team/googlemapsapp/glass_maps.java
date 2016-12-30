@@ -21,6 +21,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -34,7 +35,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class glass_maps extends FragmentActivity {
+public class glass_maps extends FragmentActivity implements GoogleMap.OnMarkerDragListener {
 
     public static double latitude = 0.0;
     public static double longitude = 0.0;
@@ -44,6 +45,8 @@ public class glass_maps extends FragmentActivity {
 
     Location location;
     Location myLocation;
+    String updatedPosition;
+    boolean updated = false;
 
     public static GoogleMap mMap; // Might be null if Google Play services APK is not available.
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -83,7 +86,6 @@ public class glass_maps extends FragmentActivity {
         glassMarker.setText("Add a Marker");
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_MEDIUM);
         String provider = locationManager.getBestProvider(criteria, true);
@@ -142,15 +144,27 @@ public class glass_maps extends FragmentActivity {
                                 glassMarker.setText("Save");
 
                                 // Set marker
-                                mMap.addMarker(new MarkerOptions()
+                                Marker pin = mMap.addMarker(new MarkerOptions()
                                         .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                                         .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
                                         .title("Glass recycling bin")
                                         .draggable(true));
 
-                                latitude = myLocation.getLatitude();
-                                longitude = myLocation .getLongitude();
+                                //Toast.makeText(getApplicationContext(), pin.getPosition() + "", Toast.LENGTH_LONG).show();
+
+                                // Set the marker location to the current one, even if it will be dragged later
+                                String[] latLongPin = (pin.getPosition()+"").split(",");
+                                latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
+                                longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+
                             } else {
+                                // If user dragged the pin to another location, update the location.
+                                if (updated){
+                                    String[] latLongPin = (updatedPosition).split(",");
+                                    latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
+
+                                    longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+                                }
 
                                 // Send marker data to the firebase database
                                 Map<String, Double> toPut = new HashMap<>();
@@ -181,28 +195,30 @@ public class glass_maps extends FragmentActivity {
     }
 
     @Override
+    public void onMarkerDragStart(Marker marker) {
+        updated = true;
+    }
+
+    @Override
+    public void onMarkerDragEnd(Marker marker) {
+        Toast.makeText(getApplicationContext(), marker.getPosition() + "", Toast.LENGTH_LONG).show();
+        updatedPosition = marker.getPosition() + "";
+        Log.d("updatedPosition ------", updatedPosition + "");
+        updated = true;
+    }
+
+
+    @Override
+    public void onMarkerDrag(Marker marker) {
+        updated = true;
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
     }
 
-
-
-    /**
-     * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
-     * installed) and the map has not already been instantiated.. This will ensure that we only ever
-     * call {@link #setUpMap()} once when {@link #mMap} is not null.
-     * <p/>
-     * If it isn't installed {@link SupportMapFragment} (and
-     * {@link com.google.android.gms.maps.MapView MapView}) will show a prompt for the user to
-     * install/update the Google Play services APK on their device.
-     * <p/>
-     * A user can return to this FragmentActivity after following the prompt and correctly
-     * installing/updating/enabling the Google Play services. Since the FragmentActivity may not
-     * have been completely destroyed during this process (it is likely that it would only be
-     * stopped or paused), {@link #onCreate(Bundle)} may not be called again so we should call this
-     * method in {@link #onResume()} to guarantee that it will be called.
-     */
     private void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
         if (mMap == null) {
@@ -216,20 +232,9 @@ public class glass_maps extends FragmentActivity {
         }
     }
 
-    /**
-     * This is where we can add markers or lines, add listeners or move the camera. In this case, we
-     * just add a marker near Africa.
-     * <p/>
-     * This should only be called once and when we are sure that {@link #mMap} is not null.
-     */
-
-
-
-
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()), 16.0f));
 

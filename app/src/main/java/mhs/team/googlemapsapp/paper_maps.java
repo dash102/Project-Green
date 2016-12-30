@@ -49,7 +49,6 @@ public class paper_maps extends FragmentActivity implements GoogleMap.OnMarkerDr
     boolean updated = false;
 
     public static GoogleMap mMap; // Might be null if Google Play services APK is not available.
-
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
@@ -88,7 +87,6 @@ public class paper_maps extends FragmentActivity implements GoogleMap.OnMarkerDr
 
         mMap.setOnMarkerDragListener(this);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_MEDIUM);
         String provider = locationManager.getBestProvider(criteria, true);
@@ -215,7 +213,7 @@ public class paper_maps extends FragmentActivity implements GoogleMap.OnMarkerDr
     public void onMarkerDrag(Marker marker) {
         updated = true;
     }
-    
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -238,7 +236,6 @@ public class paper_maps extends FragmentActivity implements GoogleMap.OnMarkerDr
     private void setUpMap() {
         mMap.setMyLocationEnabled(true);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()), 16.0f));
 
