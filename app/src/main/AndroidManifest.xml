@@ -85,15 +85,6 @@
                 android:value="mhs.team.googlemapsapp.home_page" />
         </activity>
         <activity
-            android:name=".login"
-            android:label="@string/title_activity_login"
-            android:parentActivityName=".register"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="mhs.team.googlemapsapp.register" />
-        </activity>
-        <activity
             android:name=".profile_home"
             android:label="@string/title_activity_login"
             android:parentActivityName=".home_page"

@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.parse.Parse;
 
 
 public class home_page extends Activity {
@@ -27,10 +26,6 @@ public class home_page extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         //getActionBar().setTitle("Recycle Home");
-
-        Parse.enableLocalDatastore(this);
-
-        Parse.initialize(this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
