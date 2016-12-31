@@ -35,46 +35,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class plastic_maps extends FragmentActivity implements GoogleMap.OnMarkerDragListener {
+public class plastic_maps extends Maps implements GoogleMap.OnMarkerDragListener {
 
-    public static double latitude = 0.0;
-    public static double longitude = 0.0;
-
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference ref = database.getReference("Plastic");
-
-    Location location;
-    Location myLocation;
-    String updatedPosition;
-    boolean updated = false;
-
-    public static GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == android.R.id.home) {
-            finish();
-        }
-        return true;
-    }
-
-    private void showSimplePopUp() {
-
-        AlertDialog.Builder helpBuilder = new AlertDialog.Builder(this);
-        helpBuilder.setTitle("Location Services Disabled");
-        helpBuilder.setMessage("Please go Settings to enable Location Services. \nNote: You may have to wait a few seconds for your location to be found.");
-        helpBuilder.setPositiveButton("Ok",
-                new DialogInterface.OnClickListener() {
-
-                    public void onClick(DialogInterface dialog, int which) {
-                        // Do nothing but close the dialog
-                    }
-                });
-
-        // Remember, create doesn't show the dialog
-        AlertDialog helpDialog = helpBuilder.create();
-        helpDialog.show();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -88,7 +51,7 @@ public class plastic_maps extends FragmentActivity implements GoogleMap.OnMarker
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_MEDIUM);
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
         String provider = locationManager.getBestProvider(criteria, true);
 
         location = locationManager.getLastKnownLocation(provider);
@@ -204,7 +167,6 @@ public class plastic_maps extends FragmentActivity implements GoogleMap.OnMarker
     public void onMarkerDragEnd(Marker marker) {
         Toast.makeText(getApplicationContext(), marker.getPosition() + "", Toast.LENGTH_LONG).show();
         updatedPosition = marker.getPosition() + "";
-        Log.d("updatedPosition ------", updatedPosition + "");
         updated = true;
     }
 
@@ -213,31 +175,5 @@ public class plastic_maps extends FragmentActivity implements GoogleMap.OnMarker
     public void onMarkerDrag(Marker marker) {
         updated = true;
     }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        setUpMapIfNeeded();
-    }
-
-    private void setUpMapIfNeeded() {
-        // Do a null check to confirm that we have not already instantiated the map.
-        if (mMap == null) {
-            // Try to obtain the map from the SupportMapFragment.
-            mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
-                    .getMap();
-            // Check if we were successful in obtaining the map.
-            if (mMap != null) {
-                setUpMap();
-            }
-        }
-    }
-
-    private void setUpMap() {
-        mMap.setMyLocationEnabled(true);
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        myLocation = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()), 16.0f));
-
-    }
+    
 }
