@@ -84,6 +84,7 @@ public class plastic_maps extends FragmentActivity implements GoogleMap.OnMarker
         setUpMapIfNeeded();
         final Button plasticMarker = (Button) findViewById(R.id.plasticMarker);
         plasticMarker.setText("Add a Marker");
+        mMap.setOnMarkerDragListener(this);
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();

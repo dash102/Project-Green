@@ -90,6 +90,7 @@ public class metal_maps extends FragmentActivity implements GoogleMap.OnMarkerDr
         final Button metalMarker = (Button) findViewById(R.id.metalMarker);
         metalMarker.setText("Add a Marker");
 
+        mMap.setOnMarkerDragListener(this);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_MEDIUM);

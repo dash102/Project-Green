@@ -84,6 +84,7 @@ public class cardboard_maps extends FragmentActivity implements GoogleMap.OnMark
         setUpMapIfNeeded();
         final Button cardboardMarker = (Button) findViewById(R.id.cardboardMarker);
         cardboardMarker.setText("Add a Marker");
+        mMap.setOnMarkerDragListener(this);
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();

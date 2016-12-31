@@ -90,6 +90,7 @@ public class wood_maps extends FragmentActivity implements GoogleMap.OnMarkerDra
         final Button woodMarker = (Button) findViewById(R.id.woodMarker);
         woodMarker.setText("Add a Marker");
 
+        mMap.setOnMarkerDragListener(this);
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_MEDIUM);
@@ -153,7 +154,8 @@ public class wood_maps extends FragmentActivity implements GoogleMap.OnMarkerDra
                                         .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                                         .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
                                         .title("Wood recycling bin")
-                                        .draggable(true));//Toast.makeText(getApplicationContext(), pin.getPosition() + "", Toast.LENGTH_LONG).show();
+                                        .draggable(true));
+                                //Toast.makeText(getApplicationContext(), pin.getPosition() + "", Toast.LENGTH_LONG).show();
 
                                 // Set the marker location to the current one, even if it will be dragged later
                                 String[] latLongPin = (pin.getPosition()+"").split(",");

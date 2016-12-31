@@ -84,6 +84,7 @@ public class glass_maps extends FragmentActivity implements GoogleMap.OnMarkerDr
         setUpMapIfNeeded();
         final Button glassMarker = (Button) findViewById(R.id.glassMarker);
         glassMarker.setText("Add a Marker");
+        mMap.setOnMarkerDragListener(this);
 
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();

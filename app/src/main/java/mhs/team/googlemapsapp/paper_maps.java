@@ -150,21 +150,20 @@ public class paper_maps extends FragmentActivity implements GoogleMap.OnMarkerDr
                                         .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
                                         .title("Paper recycling bin")
                                         .draggable(true));
-
                                 //Toast.makeText(getApplicationContext(), pin.getPosition() + "", Toast.LENGTH_LONG).show();
 
                                 // Set the marker location to the current one, even if it will be dragged later
                                 String[] latLongPin = (pin.getPosition()+"").split(",");
-                                latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
-                                longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+                                latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.\\-]", ""));
+                                longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.\\-]", ""));
 
                             } else {
                                 // If user dragged the pin to another location, update the location.
                                 if (updated){
                                     String[] latLongPin = (updatedPosition).split(",");
-                                    latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
+                                    latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.\\-]", ""));
 
-                                    longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+                                    longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.\\-]", ""));
                                 }
 
                                 // Send marker data to the firebase database
