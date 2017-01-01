@@ -11,6 +11,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Maps extends FragmentActivity {
@@ -25,6 +26,7 @@ public class Maps extends FragmentActivity {
     String updatedPosition;
     boolean updated = false;
     public static GoogleMap mMap; // Might be null if Google Play services APK is not available.
+    Marker pin;
 
     public void showSimplePopUp() {
 

@@ -35,10 +35,10 @@
         android:layout_marginTop="13dp"
         android:layout_below="@+id/setEmail" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="none|textPersonName"
         android:text="Log in"
         android:ems="10"
         android:id="@+id/noAccountText"

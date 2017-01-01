@@ -108,7 +108,7 @@ public class glass_maps extends Maps implements GoogleMap.OnMarkerDragListener {
                                 glassMarker.setText("Save");
 
                                 // Set marker
-                                Marker pin = mMap.addMarker(new MarkerOptions()
+                                pin = mMap.addMarker(new MarkerOptions()
                                         .position(new LatLng(myLocation.getLatitude(), myLocation.getLongitude()))
                                         .icon(BitmapDescriptorFactory.fromResource(R.mipmap.pinit_resized))
                                         .title("Glass recycling bin")
@@ -122,6 +122,7 @@ public class glass_maps extends Maps implements GoogleMap.OnMarkerDragListener {
                                 longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
 
                             } else {
+                                pin.setDraggable(false);
                                 // If user dragged the pin to another location, update the location.
                                 if (updated){
                                     String[] latLongPin = (updatedPosition).split(",");
