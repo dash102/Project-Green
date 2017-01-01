@@ -54,7 +54,7 @@ public class Maps extends FragmentActivity {
 
     public void setUpMapIfNeeded() {
         // Do a null check to confirm that we have not already instantiated the map.
-        if (mMap == null) {
+        //if (mMap == null) {
             // Try to obtain the map from the SupportMapFragment.
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                     .getMap();
@@ -62,7 +62,7 @@ public class Maps extends FragmentActivity {
             if (mMap != null) {
                 setUpMap();
             }
-        }
+        //}
     }
 
     public void setUpMap() {
