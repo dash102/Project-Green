@@ -118,17 +118,17 @@ public class glass_maps extends Maps implements GoogleMap.OnMarkerDragListener {
 
                                 // Set the marker location to the current one, even if it will be dragged later
                                 String[] latLongPin = (pin.getPosition()+"").split(",");
-                                latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
-                                longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+                                latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.\\-]", ""));
+                                longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.\\-]", ""));
 
                             } else {
                                 pin.setDraggable(false);
                                 // If user dragged the pin to another location, update the location.
                                 if (updated){
                                     String[] latLongPin = (updatedPosition).split(",");
-                                    latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
+                                    latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.\\-]", ""));
 
-                                    longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+                                    longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.\\-v ]", ""));
                                 }
 
                                 // Send marker data to the firebase database
@@ -137,8 +137,10 @@ public class glass_maps extends Maps implements GoogleMap.OnMarkerDragListener {
                                 toPut.put("latitude", latitude);
                                 ref.push().setValue(toPut);
 
-                                Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), "Spot saved.", Toast.LENGTH_SHORT).show();
                                 glassMarker.setText("Add a Marker");
+                                Toast.makeText(getApplicationContext(), getCity(latitude, longitude), Toast.LENGTH_LONG).show();
+
 
                             }
                         }

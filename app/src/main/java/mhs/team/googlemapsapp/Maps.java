@@ -3,9 +3,12 @@ package mhs.team.googlemapsapp;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -13,6 +16,10 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 public class Maps extends FragmentActivity {
 
@@ -27,6 +34,24 @@ public class Maps extends FragmentActivity {
     boolean updated = false;
     public static GoogleMap mMap; // Might be null if Google Play services APK is not available.
     Marker pin;
+
+    public static Geocoder gcd;
+
+    public String getCity(double lat, double lng) {
+        gcd = new Geocoder(getApplicationContext(), Locale.getDefault());
+        List<Address> addresses = null;
+        try {
+            addresses = gcd.getFromLocation(lat, lng, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (addresses.size() > 0) {
+            return addresses.get(0).getLocality();
+        } else {
+            Log.d("Weird...........", "....");
+            return "N/A";
+        }
+    }
 
     public void showSimplePopUp() {
 

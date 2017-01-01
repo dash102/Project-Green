@@ -123,17 +123,17 @@ public class metal_maps extends Maps implements GoogleMap.OnMarkerDragListener {
 
                                 // Set the marker location to the current one, even if it will be dragged later
                                 String[] latLongPin = (pin.getPosition()+"").split(",");
-                                latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
-                                longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+                                latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.\\-]", ""));
+                                longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.\\-]", ""));
 
                             } else {
                                 pin.setDraggable(false);
                                 // If user dragged the pin to another location, update the location.
                                 if (updated){
                                     String[] latLongPin = (updatedPosition).split(",");
-                                    latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.]", ""));
+                                    latitude = Double.parseDouble(latLongPin[0].replaceAll("[^\\d.\\-]", ""));
 
-                                    longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.]", ""));
+                                    longitude = Double.parseDouble(latLongPin[1].replaceAll("[^\\d.\\-]", ""));
                                 }
 
                                 // Send marker data to the firebase database
